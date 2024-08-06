@@ -4,7 +4,7 @@
 maybe need to install:
 - npm install express
 - npm install axios
-- npm instal nodemon (optional)
+- npm install nodemon (optional)
 
 ### Routes
 

@@ -42,9 +42,9 @@ Response Example:
     "playfulness": 5
 }
 
-> POST: http://localhost:3333/breeding
+> POST: http://localhost:3333/breed
 Params:
-- breeding: "Abyssinian"
+- breed: "Abyssinian"
 
 Response:
 [

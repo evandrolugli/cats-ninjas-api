@@ -2,7 +2,13 @@ const express = require('express')
 const axios = require('axios');
 //const request = require('request');
 const app = express();
+const cors = require('cors');
 
+app.use(cors({
+    origin: 'http://localhost:3000'
+  }));
+
+app.use(express.json());
 app.use(express.urlencoded({extended: true,}));
 
 app.get("/", function(req, res) {
@@ -10,6 +16,9 @@ app.get("/", function(req, res) {
 });
 
 app.post("/", async(req, res) => {
+    console.log("Post")
+    console.log("Request body:", req.body);
+
     const playfulness = parseInt(req.body.playfulness);
     const children_friendly = parseInt(req.body.children_friendly);
     const other_pets_friendly = parseInt(req.body.other_pets_friendly);
@@ -30,11 +39,11 @@ app.post("/", async(req, res) => {
     }
 });
 
-app.post("/breeding", async (req, res) => {
-    const breeding = req.body.breeding;
+app.post("/breed", async (req, res) => {
+    const breed = req.body.breed;
     try {
         const response = await axios.get('https://api.api-ninjas.com/v1/cats', {
-            params: { name: breeding },
+            params: { name: breed },
             headers: { 'X-Api-Key': 'y3xqgHKhqirFf53dtszSAA==k58QDTGlgUKQzefV' }
         });
         
